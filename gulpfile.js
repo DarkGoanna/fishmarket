@@ -58,7 +58,7 @@ function images() {
         .pipe(dest('dist/img'))
 }
 function webpConvert() {
-    return src('app/img/**/*')
+    return src('app/img/*.{jpg, png, jpeg, gif}')
         .pipe(imagemin([webp({ quality: 75, }),]))
         .pipe(rename({ extname: '.webp', }))
         .pipe(dest('app/img'))

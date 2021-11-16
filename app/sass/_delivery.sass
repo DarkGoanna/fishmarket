@@ -1,0 +1,59 @@
+.delivery
+  &__title
+    text-align: center
+  &__inner
+    padding-top: 260px
+    position: relative
+  &__image
+    position: relative
+    & picture
+      margin: 0 auto 147px
+      max-width: 962px
+      width: 100%
+      display: block
+      & img
+        width: 100%
+        object-fit: contain
+  &__card
+    display: flex
+    flex-direction: column
+    position: absolute
+    max-width: 330px
+    width: 100%
+    & h4
+      margin-bottom: 14px
+    &--1
+      top: 0
+      left: 0
+      color: #4D4D4D
+      transform: translateY(-50px)
+      & img
+        display: block
+        margin: auto
+    &--2
+      color: $black
+      background: rgba(150, 219, 217, 0.6)
+      border-radius: 30px
+      padding: 40px 20px
+      top: -50px
+      left: calc(50% + 100px)
+      backdrop-filter: blur(4px)
+      min-height: 226px
+      justify-content: center
+      row-gap: 10px
+  &__order
+    max-width: 927px
+    width: 100%
+    display: grid
+    grid-template-columns: 300px 1fr
+    align-items: center
+    margin-left: auto
+    & img
+      object-fit: contain
+    &-description
+      display: flex
+      flex-direction: column
+      & h5
+        margin-bottom: 14px
+      & p
+        margin-bottom: 36px

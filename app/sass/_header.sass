@@ -3,23 +3,64 @@
   top: 0
   left: 0
   width: 100%
-  height: 390px
+  height: 100vh
   z-index: 100
   background: transparent
-  & .container
+  color: $white
+  transition: .5s
+  &::-webkit-scrollbar
+    width: 0px
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 1
+    background: linear-gradient(0deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%)
+  &__background
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    width: 100%
+    height: 100%
+    object-fit: cover
+    z-index: 0
+    // display: none
+  &__top
     display: grid
     grid-template-columns: max-content max-content 1fr max-content
-    grid-template-areas: 'phone burger menu delivery''logo logo logo logo'
-    grid-template-rows: 115px 1fr
+    grid-template-areas: 'phone burger menu delivery'
     align-items: center
-    grid-row-gap: 57px
+    height: 115px
     color: $white
-    height: 100%
+    position: relative
+    z-index: 4
   &__logo
-    grid-area: logo
-    height: 100%
-    justify-self: center
+    position: absolute
+    top: calc( 115px + 57px )
+    left: 50%
+    transform: translateX(-50%)
+    font-family: "FoglihtenNo06"
+    transition: .3s
+    & a
+      display: grid
+      height: 100%
+      grid-template-columns: repeat(2, max-content)
+      align-items: center
+    & img
+      display: block
+      height: 100%
+      object-fit: contain
     & .logo__text
+      border-top: 1px solid $white
+      border-bottom: 1px solid $white
+      display: grid
+      justify-content: center
+      text-align: center
       & span:first-child
         font-size: 52px
         letter-spacing: 2.35px
@@ -80,25 +121,68 @@
       column-gap: 36px
       & li
         list-style: none
-
   &__phone
     grid-area: phone
-    display: flex
-    align-items: center
-    column-gap: 15px
+    & a
+      display: flex
+      align-items: center
+      column-gap: 15px
   &__delivery
     grid-area: delivery
+    position: relative
+    &::before
+      content: url('../img/icons/bag.svg')
+      position: absolute
+      top: -1px
+      left: 0
+      transform: translateX(-50%)
+      transition: .2s
+      opacity: 1
+      visibility: visible
+  &__inner
+    margin-top: 275px
+    position: relative
+    height: auto
+    visibility: visible
+    opacity: 1
+    transition: opacity .5s, height .5s, margin .75s
+    z-index: 3
+    padding-top: 20px
+    max-width: 783px
+    text-align: center
+    margin-left: auto
+    margin-right: auto
+  &__title
+    font-size: 52px
+    letter-spacing: -2px
+    margin-bottom: 18px
+  &__subtitle
+    font-size: 20px
+    line-height: 1.5
+    margin-bottom: 26px
+    color: rgba($white, .8)
+  &__button-wrapper
+    display: flex
+    align-items: center
+    justify-content: center
+    column-gap: 36px
   &.small
     height: 115px
     background: $dark
-    & .container
-      display: grid
-      grid-template-columns: max-content max-content 1fr max-content
-      grid-template-areas: 'logo burger phone delivery'
-      grid-template-rows: 115px
-      grid-row-gap: 0
+    transition: .5s
+    & .header__delivery
+      &::before
+        opacity: 0
+        visibility: hidden
+        transition: .2s
+    & .header__background
+      opacity: 0
+      transition: .5s
+    & .header__top
+      grid-template-columns: max-content 1fr max-content
+      grid-template-areas: 'burger phone delivery'
       grid-column-gap: 30px
-      transition: .2s
+      padding-left: 200px
     & .header__menu
       position: fixed
       top: 0
@@ -109,6 +193,11 @@
       transition: .2s
       margin: 0
       background: $main
+      opacity: 0
+      visibility: hidden
+      background-image: url('../img/cat-head.svg'), url('../img/fish-3.svg')
+      background-repeat: no-repeat
+      background-position: calc(100% - 150px) 100%, calc(100% - 100px) 100px
       & .menu__list
         flex-direction: column
         justify-content: space-around
@@ -118,7 +207,7 @@
         position: absolute
         top: 0
         bottom: 0
-        left: calc( 50% - (1240px / 2) )
+        left: 150px
         & li
           position: relative
           padding-left: 32px
@@ -137,8 +226,11 @@
           & a
             font-size: 36px
             letter-spacing: 0.35px
+            font-family: "FoglihtenNo06"
       &.open
         transform: translateX(0)
+        opacity: 1
+        visibility: visible
         transition: .2s
     & .header__phone
       margin-left: auto
@@ -146,6 +238,10 @@
       display: block
       z-index: 1
     & .header__logo
+      top: 50%
+      left: 0
+      transform: translate(0, -50%)
+      transition: .2s
       & img
         max-height: 80px
         margin-right: 10px
@@ -163,3 +259,234 @@
           font-size: 40px
           letter-spacing: 5px
           line-height: 1.1
+    & .header__inner
+      margin: 0
+      height: 0
+      visibility: hidden
+      opacity: 0
+      transition: opacity .5s, height .5s, margin .75s
+@media screen and ( min-width: 1400px )
+  .header
+    &.small
+      & .header__menu
+        & .menu__list
+          left: calc( 50% - (1240px / 2) )
+@media screen and ( max-width: 1300px )
+  .header
+    &.small
+      & .header__menu
+        background-position: calc(100%) 100%, calc(110%) 100px
+@media screen and ( max-width: 1200px )
+  .header
+    &__inner
+      transition: opacity .3s .3s, height .3s, margin .3s
+    &.small
+      & .header__menu
+        background-position: calc(130%) 100%, calc(120%) 100px
+      & .header__inner
+        transition: opacity .3s 0s, height .3s, margin .3s
+    &__top
+      grid-template-columns: max-content 1fr max-content
+      grid-template-areas: 'burger phone delivery'
+      grid-column-gap: 30px
+      transition: .3s
+      padding-left: 200px
+      position: relative
+      &::before
+        content: ''
+        background: $black
+        width: calc(100% + 30px)
+        height: 100%
+        position: absolute
+        top: 0
+        left: 50%
+        transform: translateX(-50%)
+        z-index: -1
+    &__menu
+      position: fixed
+      top: 0
+      left: 0
+      height: 100vh
+      width: 100%
+      transform: translateX(-100%)
+      transition: .2s
+      margin: 0
+      background: $main
+      opacity: 0
+      visibility: hidden
+      background-image: url('../img/cat-head.svg'), url('../img/fish-3.svg')
+      background-repeat: no-repeat
+      background-position: calc(130%) 100%, calc(120%) 100px
+      & .menu__list
+        flex-direction: column
+        justify-content: space-around
+        padding: 130px 0
+        height: 100%
+        align-items: start
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 150px
+        & li
+          position: relative
+          padding-left: 32px
+          &::before
+            content: ''
+            display: block
+            width: 8px
+            height: 8px
+            background: $white
+            border-radius: 50%
+            overflow: hidden
+            position: absolute
+            top: 50%
+            left: 0
+            transform: translateY(-50%)
+          & a
+            font-size: 36px
+            letter-spacing: 0.35px
+            font-family: "FoglihtenNo06"
+      &.open
+        transform: translateX(0)
+        opacity: 1
+        visibility: visible
+        transition: .2s
+    & .header__phone
+      margin-left: auto
+    & .header__burger
+      display: block
+      z-index: 1
+    & .header__logo
+      top: 50%
+      left: 0
+      transform: translate(0, -50%)
+      transition: .3s
+      & img
+        max-height: 80px
+        margin-right: 10px
+      & .logo__text
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        padding: 8px 0 0
+        & span:first-child
+          font-size: 20px
+          letter-spacing: 1.5px
+          line-height: 1.1
+        & span:last-child
+          font-size: 40px
+          letter-spacing: 5px
+          line-height: 1.1
+@media screen and ( max-width: 1000px )
+  .header
+    &.small
+      & .header__menu
+        background-position: calc(130%) 100%, calc(-200%) 100px
+    &__menu
+      background-position: calc(130%) 100%, calc(-200%) 100px
+    &__inner
+      margin-top: 170px
+@media screen and ( max-width: 768px )
+  .header
+    &.small
+      & .header__top
+        padding-left: 140px
+        grid-column-gap: 15px
+      & .header__phone
+        & a
+          column-gap: 5px
+      & .header__logo
+        & img
+          max-height: 60px
+          margin-right: 5px
+        & .logo__text
+          & span:first-child
+            font-size: 16px
+          & span:last-child
+            font-size: 30px
+      & .header__menu
+        & .menu__list
+          left: 50px
+    &__delivery
+      &::before
+        content: none
+    &__top
+      padding-left: 140px
+      grid-column-gap: 15px
+    &__phone
+      & a
+        column-gap: 5px
+    & .header__logo
+      & img
+        max-height: 60px
+        margin-right: 5px
+      & .logo__text
+        & span:first-child
+          font-size: 16px
+        & span:last-child
+          font-size: 30px
+    &__menu
+      & .menu__list
+        left: 50px
+@media screen and ( max-width: 580px )
+  .header
+    &.small
+      height: 70px
+      & .header__logo
+        & img
+          max-height: 50px
+        & .logo__text
+          & span:first-child
+            font-size: 14px
+          & span:last-child
+            font-size: 20px
+      & .header__top
+        height: 70px
+        padding-left: 115px
+        grid-column-gap: 10px
+    &__phone
+      & img
+        width: 22px
+      & span
+        display: none
+    &__delivery
+      width: 150px
+      height: 40px
+    &__top
+      height: 70px
+      padding-left: 115px
+      grid-column-gap: 10px
+    & .header__logo
+      & img
+        max-height: 50px
+      & .logo__text
+        & span:first-child
+          font-size: 14px
+        & span:last-child
+          font-size: 20px
+    &__inner
+      margin-top: 50px
+    &__title
+      font-size: 30px
+    &__subtitle
+      font-size: 16px
+@media screen and ( max-width: 480px )
+  .header
+    &__delivery
+      font-size: 16px
+    &__button-wrapper
+      column-gap: 15px
+@media screen and ( max-width: 400px )
+  .header
+    &__top
+      padding-left: 50px
+    & .header__logo
+      & .logo__text
+        display: none
+    &.small
+      & .header__top
+        padding-left: 50px
+      & .header__logo
+        & .logo__text
+          display: none
