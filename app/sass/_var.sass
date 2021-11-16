@@ -1,0 +1,124 @@
+@font-face
+  font-family: "Geometria"
+  src: url("../fonts/Geometria/Geometria-Bold.woff2") format("woff2")
+  font-display: swap
+  font-weight: 700
+
+@font-face
+  font-family: "Geometria"
+  src: url("../fonts/Geometria/Geometria-Regular.woff2") format("woff2")
+  font-display: swap
+  font-weight: 400
+
+@font-face
+  font-family: "FoglihtenNo06"
+  src: url("../fonts/FoglihtenNo06/FoglihtenNo06-Regular.woff2") format("woff2")
+  font-display: swap
+  font-weight: 400
+
+$black: #000000
+$white: #ffffff
+$dark: #070707
+$main: #116B6A
+$second: #E9BDA9
+
+.t1, h1
+  font-family: "FoglihtenNo06"
+  font-weight: 400
+  font-size: 96px
+  line-height: 1
+  letter-spacing: 0.35px
+.t2, h2
+  font-family: "Geometria"
+  font-weight: 400
+  font-size: 60px
+  line-height: 1.2
+  letter-spacing: 0.35px
+.t3, h3
+  font-family: "Geometria"
+  font-weight: 400
+  font-size: 34px
+  line-height: 1.2
+  letter-spacing: 0.38px
+.t4, h4
+  font-family: "Geometria"
+  font-weight: 400
+  font-size: 48px
+  line-height: 1.2
+  letter-spacing: 0.38px
+h5, h6
+  font-family: "Geometria"
+  font-weight: 400
+  font-size: 24px
+  line-height: 1.2
+  letter-spacing: 0.38px
+.bold
+  font-family: "Geometria"
+  font-weight: 700
+
+.btn
+  cursor: pointer
+  display: flex
+  align-items: center
+  justify-content: center
+  transition: .2s
+  border-radius: 0
+  font-weight: 400
+  font-size: 18px
+  &--big
+    width: 350px
+    height: 88px
+  &--middle
+    width: 260px
+    height: 60px
+  &--small
+    width: 190px
+    height: 60px
+  &--v1
+    color: $white
+    background: $main
+    border: 1px solid $main
+    &:hover,
+    &:active
+      // background: 
+      transition: .2s
+  &--v2
+    color: $white
+    background: transparent
+    border: 1px solid $white
+    &:hover,
+    &:active
+      // background: 
+      transition: .2s
+  &--v3
+    color: $white
+    background: $second
+    border: 1px solid $second
+    &:hover,
+    &:active
+      // background: 
+      transition: .2s
+.container
+  max-width: 1240px + (2 * 15px)
+  padding: 0 15px
+  margin: 0 auto
+.clearfix::after
+  content: ''
+  display: block
+  clear: both
+.alignright
+  float: right
+  margin-left: 50px
+  margin-bottom: 25px
+.alignleft
+  float: left
+  margin-right: 50px
+  margin-bottom: 25px
+.scrollOff
+  overflow-y: hidden
+.bg
+  background-position: center
+  background-size: cover
+  background-repeat: no-repeat
+.pt
+  padding-top: 100px

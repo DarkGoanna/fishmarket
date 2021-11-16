@@ -1,0 +1,165 @@
+.header
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 390px
+  z-index: 100
+  background: transparent
+  & .container
+    display: grid
+    grid-template-columns: max-content max-content 1fr max-content
+    grid-template-areas: 'phone burger menu delivery''logo logo logo logo'
+    grid-template-rows: 115px 1fr
+    align-items: center
+    grid-row-gap: 57px
+    color: $white
+    height: 100%
+  &__logo
+    grid-area: logo
+    height: 100%
+    justify-self: center
+    & .logo__text
+      & span:first-child
+        font-size: 52px
+        letter-spacing: 2.35px
+        line-height: 1.5
+      & span:last-child
+        font-size: 120px
+        letter-spacing: 0.35px
+        line-height: 1
+  &__burger
+    grid-area: burger
+    display: none
+    #burger
+      border: none
+      background: transparent
+      position: relative
+      width: 30px
+      height: 20px
+      cursor: pointer
+      & span
+        width: 100%
+        height: 2px
+        background: $white
+        position: absolute
+        left: 50%
+        pointer-events: none
+        &:nth-child(1)
+          top: 0
+          transform: translateX(-50%)
+          transition: .2s
+        &:nth-child(2)
+          top: 50%
+          transform: translate(-50%, -50%)
+        &:nth-child(3)
+          bottom: 0
+          transform: translateX(-50%)
+          transition: .2s
+      &.open
+        & span
+          &:nth-child(1)
+            top: 50%
+            transform: translate(-50%, -50%) rotate(45deg)
+            transition: .2s
+          &:nth-child(2)
+            opacity: 0
+            visibility: hidden
+          &:nth-child(3)
+            top: 50%
+            transform: translate(-50%, -50%) rotate(-45deg)
+            transition: .2s
+  &__menu
+    grid-area: menu
+    margin: auto
+    & .menu__list
+      padding: 0
+      display: flex
+      align-items: center
+      justify-content: center
+      column-gap: 36px
+      & li
+        list-style: none
+
+  &__phone
+    grid-area: phone
+    display: flex
+    align-items: center
+    column-gap: 15px
+  &__delivery
+    grid-area: delivery
+  &.small
+    height: 115px
+    background: $dark
+    & .container
+      display: grid
+      grid-template-columns: max-content max-content 1fr max-content
+      grid-template-areas: 'logo burger phone delivery'
+      grid-template-rows: 115px
+      grid-row-gap: 0
+      grid-column-gap: 30px
+      transition: .2s
+    & .header__menu
+      position: fixed
+      top: 0
+      left: 0
+      height: 100vh
+      width: 100%
+      transform: translateX(-100%)
+      transition: .2s
+      margin: 0
+      background: $main
+      & .menu__list
+        flex-direction: column
+        justify-content: space-around
+        padding: 130px 0
+        height: 100%
+        align-items: start
+        position: absolute
+        top: 0
+        bottom: 0
+        left: calc( 50% - (1240px / 2) )
+        & li
+          position: relative
+          padding-left: 32px
+          &::before
+            content: ''
+            display: block
+            width: 8px
+            height: 8px
+            background: $white
+            border-radius: 50%
+            overflow: hidden
+            position: absolute
+            top: 50%
+            left: 0
+            transform: translateY(-50%)
+          & a
+            font-size: 36px
+            letter-spacing: 0.35px
+      &.open
+        transform: translateX(0)
+        transition: .2s
+    & .header__phone
+      margin-left: auto
+    & .header__burger
+      display: block
+      z-index: 1
+    & .header__logo
+      & img
+        max-height: 80px
+        margin-right: 10px
+      & .logo__text
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        padding: 8px 0 0
+        & span:first-child
+          font-size: 20px
+          letter-spacing: 1.5px
+          line-height: 1.1
+        & span:last-child
+          font-size: 40px
+          letter-spacing: 5px
+          line-height: 1.1
