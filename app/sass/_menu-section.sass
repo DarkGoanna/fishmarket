@@ -1,0 +1,237 @@
+.menu-section
+  position: relative
+  margin-top: 50px
+  &::before
+    content: ''
+    display: block
+    background-image: url('../img/menu-section-background.svg')
+    background-position: 0 0
+    background-repeat: no-repeat
+    width: 27%
+    height: 1060px
+    position: absolute
+    top: -19%
+    right: calc(100% - 27%)
+    background-size: contain
+    z-index: -1
+  &__title
+    margin-left: 300px
+    margin-bottom: 18px
+  &__subtitle
+    margin-left: 300px
+  &__inner
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-row-gap: 60px
+    align-items: center
+  &__card
+    display: flex
+    flex-direction: column
+    overflow: hidden
+    & img
+      transition: .2s
+      filter: grayscale(1)
+    &:hover
+      & img
+        filter: grayscale(0)
+        transition: .2s
+    &:nth-child(even)
+      flex-direction: column-reverse
+    &:nth-child(4n+4),
+    &:nth-child(4n+1)
+      max-width: calc(100% - 100px)
+    &:nth-child(4n+1)
+      margin-right: auto
+      & .menu-section__description
+        & p
+          text-align: right
+      & .menu-section__image
+        padding-top: 130px
+        position: relative
+        &::before
+          content: ''
+          display: block
+          height: 135px
+          width: 191px
+          background-image: url('../img/cat-fish.svg')
+          background-position: center -50%
+          background-repeat: no-repeat
+          position: absolute
+          right: 40px
+          top: 0
+          z-index: -1
+    &:nth-child(4n+4)
+      margin-left: auto
+      & .menu-section__description
+        & p
+          max-width: 290px
+          margin-left: auto
+          text-align: right
+    &:nth-child(4n+3)
+      & .menu-section__image
+        padding-bottom: 115px
+        position: relative
+        &::before
+          content: ''
+          display: block
+          height: 115px
+          width: 191px
+          background-image: url('../img/cat-fish.svg')
+          background-position: center 125%
+          background-repeat: no-repeat
+          position: absolute
+          left: 68px
+          bottom: 0
+          z-index: -1
+    &:nth-child(4n+2)
+      & .menu-section__description
+        position: relative
+        min-height: 160px
+        display: flex
+        align-items: center
+        & p
+          max-width: 270px
+          margin-right: auto
+        &::before
+          content: ''
+          display: block
+          height: 100%
+          width: 197px
+          background-image: url('../img/cat-fish-reverse.svg')
+          background-position: center 0%
+          background-repeat: no-repeat
+          position: absolute
+          right: 100px
+          bottom: 0
+          z-index: -1
+  &__btn
+    width: 100%
+    min-height: 103px
+    height: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    background: $main
+    border: none
+    border-radius: 0
+    color: $white
+    font-size: 24px
+    position: relative
+    column-gap: 24px
+    transition: .2s
+    cursor: pointer
+    &:hover
+      color: $second
+      transition: .2s
+      & .menu-section__arrow
+        fill: $second
+        transition: .2s
+        & path
+          stroke: $second
+          fill: $second
+          transition: .2s
+  &__arrow
+    fill: $white
+    transition: .2s
+    width: 26px
+    margin-bottom: -3px
+    & path
+      stroke: $white
+      fill: $white
+      transition: .2s
+  &__image
+    & picture
+      & img
+        display: block
+        width: 100%
+        object-fit: cover
+  &__description
+    & p
+      padding: 36px 0
+@media screen and ( max-width: 1300px )
+  .menu-section
+    &::before
+      top: -17%
+@media screen and ( max-width: 1200px )
+  .menu-section
+    &::before
+      top: -350px
+@media screen and ( max-width: 1200px )
+  .menu-section
+    &::before
+      top: -350px
+@media screen and ( max-width: 1000px )
+  .menu-section
+    &::before
+      top: -130px
+      width: 200px
+      height: 500px
+      right: auto
+      left: 0
+    &__title,
+    &__subtitle
+      margin-left: 200px
+    &__card
+      &:nth-child(4n+4),
+      &:nth-child(4n+1)
+        max-width: calc(100% - 50px)
+@media screen and ( max-width: 768px )
+  .menu-section
+    &::before
+      width: 150px
+      top: -50px
+    &__title,
+    &__subtitle
+      margin-left: 150px
+    &__card
+      &:nth-child(4n+4),
+      &:nth-child(4n+1)
+        max-width: 100%
+      &:nth-child(4n+2)
+        & .menu-section__description
+          &::before
+            content: none
+    &__inner
+      grid-gap: 15px
+    &__description p
+      padding: 15px 0
+    &__btn
+      min-height: 60px
+      font-size: 16px
+      column-gap: 10px
+    &__arrow
+      width: 20px
+@media screen and ( max-width: 580px )
+  .menu-section
+    margin-top: 0
+    &::before
+      content: none
+    &__title,
+    &__subtitle
+      margin-left: 0
+    &__inner
+      grid-template-columns: 100%
+      padding: 30px 0
+      grid-row-gap: 60px
+    &__card
+      &:nth-child(n)
+        flex-direction: column
+        & img
+          filter: grayscale(0)
+        & .menu-section__image
+          padding: 0
+          &::before
+            content: none
+        & .menu-section__description
+          min-height: auto
+          & p
+            max-width: 100%
+            text-align: left
+    &__image
+      & picture
+        max-height: 300px
+        overflow: hidden
+        display: block
+        & img
+          height: 100%
+          object-position: center

@@ -49,6 +49,31 @@ function openMenu() {
 
 burger.addEventListener('click', openMenu)
 
+// news
+const newsSlider = document.querySelector('.news__slider');
+if (newsSlider) {
+  new Swiper(newsSlider, {
+    loop: true,
+    spaceBetween: 36,
+    slidesPerView: 3,
+    navigation: {
+      nextEl: '.news__nav--next',
+      prevEl: '.news__nav--prev',
+    },
+    breakpoints: {
+      321: {
+        slidesPerView: 1,
+      },
+      581: {
+        slidesPerView: 2,
+      },
+      769: {
+        slidesPerView: 3,
+      },
+    },
+  });
+}
+
 // on load
 window.addEventListener('load', () => {
   if (isApple()) document.html.classList.add('ios');

@@ -1,0 +1,62 @@
+.app
+  background: $main
+  color: $white
+  padding: 130px 0
+  margin-top: 100px
+  background-image: url('../img/app-background.png')
+  background-position: 0 102%
+  background-size: 600px
+  background-repeat: no-repeat
+  &__inner
+    max-width: 50%
+    width: 100%
+    margin-left: auto
+    display: flex
+    flex-direction: column
+    align-items: center
+    text-align: center
+  &__title
+    margin-bottom: 18px
+  &__subtitle
+    margin-bottom: 80px
+    color: $second
+    letter-spacing: -0.408px
+  &__text
+    margin-bottom: 18px
+  &__link-wrapper
+    display: flex
+    align-items: center
+    justify-content: center
+    column-gap: 23px
+    margin-bottom: 80px
+@media screen and ( max-width: 1300px )
+  .app
+    background-size: 500px
+@media screen and ( max-width: 1200px )
+  .app
+    background-size: 450px
+@media screen and ( max-width: 1000px )
+  .app
+    padding-bottom: 600px
+    background-size: 500px
+    &__inner
+      max-width: 100%
+@media screen and ( max-width: 768px )
+  .app
+    margin-top: 0px
+    padding-bottom: 500px
+    background-size: 400px
+@media screen and ( max-width: 580px )
+  .app
+    padding-top: 50px
+    padding-bottom: 350px
+    background-size: 300px
+    &__subtitle
+      margin-bottom: 40px
+    &__link-wrapper
+      margin-bottom: 40px
+@media screen and ( max-width: 480px )
+  .app
+    &__link-wrapper
+      flex-direction: column
+      row-gap: 10px

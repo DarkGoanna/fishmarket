@@ -1,4 +1,5 @@
 .delivery
+  padding-bottom: 50px
   &__title
     text-align: center
   &__inner
@@ -29,7 +30,7 @@
       transform: translateY(-50px)
       & img
         display: block
-        margin: auto
+        margin-right: auto
     &--2
       color: $black
       background: rgba(150, 219, 217, 0.6)
@@ -57,3 +58,94 @@
         margin-bottom: 14px
       & p
         margin-bottom: 36px
+@media screen and ( max-width: 1200px )
+  .delivery
+    &__inner
+      padding-top: 275px
+    &__card
+      &--1
+        transform: translateY(0px)
+        background: rgba($white, 0.6)
+        backdrop-filter: blur(4px)
+        border-radius: 30px
+        padding: 15px
+        z-index: 2
+      &--2
+        padding: 15px
+        max-width: 300px
+        top: calc(100% - 50px)
+        left: auto
+        right: 0
+        min-height: 200px
+    &__order
+      grid-template-columns: 100%
+      position: relative
+      & img
+        position: absolute
+        bottom: 100%
+        left: 0
+        max-width: 200px
+@media screen and ( max-width: 768px )
+  .delivery
+    &__card
+      &--1
+        position: relative
+        top: auto
+        left: auto
+        max-width: 100%
+        display: grid
+        grid-template-columns: 175px 1fr
+        grid-template-areas: 'image title''image text'
+        padding: 0
+        & img
+          grid-area: image
+        & .t4
+          grid-area: title
+          align-self: end
+        & .delivery__description
+          grid-area: text
+      &--2
+        top: 100%
+    &__inner
+      padding-top: 0
+    &__image
+      & picture
+        margin-bottom: 200px
+@media screen and ( max-width: 580px )
+  .delivery
+    padding-bottom: 0
+    &__order
+      & img
+        left: auto
+        right: 250px
+    &__card
+      &--1
+        grid-template-columns: 100%
+        grid-template-areas: 'title''text'
+        max-width: 300px
+        position: relative
+        margin: 60px 0 20px
+        margin-left: auto
+        & img
+          grid-area: auto
+          position: absolute
+          top: 50%
+          right: 250px
+          transform: translateY(-50%)
+          max-height: 200px
+@media screen and ( max-width: 430px )
+  .delivery
+    &__order
+      & img
+        display: none
+    &__card
+      &--2
+        max-width: 100%
+        min-height: 160px
+        top: calc( 100% + 20px )
+      &--1
+        max-width: 100%
+        padding: 15px
+        margin-top: 30px
+        & img
+          display: none
