@@ -29,7 +29,6 @@
     height: 100%
     object-fit: cover
     z-index: 0
-    // display: none
   &__top
     display: grid
     grid-template-columns: max-content max-content 1fr max-content
@@ -45,7 +44,6 @@
     left: 50%
     transform: translateX(-50%)
     font-family: "FoglihtenNo06"
-    transition: .3s
     & a
       display: grid
       height: 100%
@@ -72,6 +70,8 @@
   &__burger
     grid-area: burger
     display: none
+    position: relative
+    z-index: 3
     #burger
       border: none
       background: transparent
@@ -113,6 +113,8 @@
   &__menu
     grid-area: menu
     margin: auto
+    position: relative
+    z-index: 2
     & .menu__list
       padding: 0
       display: flex
@@ -195,9 +197,10 @@
       background: $main
       opacity: 0
       visibility: hidden
+      background-size: 0
       background-image: url('../img/cat-head.svg'), url('../img/fish-3.svg')
       background-repeat: no-repeat
-      background-position: calc(100% - 150px) 100%, calc(100% - 100px) 100px
+      background-position: 100% 100%, calc(100% - 100px) 100px
       & .menu__list
         flex-direction: column
         justify-content: space-around
@@ -208,6 +211,8 @@
         top: 0
         bottom: 0
         left: 150px
+        opacity: 0
+        visibility: hidden
         & li
           position: relative
           padding-left: 32px
@@ -232,16 +237,18 @@
         opacity: 1
         visibility: visible
         transition: .2s
+        background-size: 40%, 40%
+        & .menu__list
+          opacity: 1
+          visibility: visible
     & .header__phone
       margin-left: auto
     & .header__burger
       display: block
-      z-index: 1
     & .header__logo
       top: 50%
       left: 0
       transform: translate(0, -50%)
-      transition: .2s
       & img
         max-height: 80px
         margin-right: 10px
@@ -267,29 +274,44 @@
       transition: opacity .5s, height .5s, margin .75s
 @media screen and ( min-width: 1400px )
   .header
+    &__inner
+      margin-top: 350px
+    &__logo
+      top: 200px
     &.small
       & .header__menu
         & .menu__list
           left: calc( 50% - (1240px / 2) )
+@media screen and ( min-width: 1200px ) and (max-device-height: 800px)
+  .header
+    &__inner
+      margin-top: 12%
+    &__logo
+      top: 115px
+      & img
+        max-height: 140px
+    & .logo__text
+      & span:first-child
+        font-size: 36px
+      & span:last-child
+        font-size: 70px
 @media screen and ( max-width: 1300px )
   .header
     &.small
       & .header__menu
-        background-position: calc(100%) 100%, calc(110%) 100px
+        background-position: calc(100% + 100px) 100%, calc(100% + 100px) 100px
 @media screen and ( max-width: 1200px )
   .header
     &__inner
-      transition: opacity .3s .3s, height .3s, margin .3s
+      margin-top: 10%
     &.small
       & .header__menu
-        background-position: calc(130%) 100%, calc(120%) 100px
-      & .header__inner
-        transition: opacity .3s 0s, height .3s, margin .3s
+        &.open
+          background-size: 40%, 50%
     &__top
       grid-template-columns: max-content 1fr max-content
       grid-template-areas: 'burger phone delivery'
       grid-column-gap: 30px
-      transition: .3s
       padding-left: 200px
       position: relative
       &::before
@@ -316,7 +338,6 @@
       visibility: hidden
       background-image: url('../img/cat-head.svg'), url('../img/fish-3.svg')
       background-repeat: no-repeat
-      background-position: calc(130%) 100%, calc(120%) 100px
       & .menu__list
         flex-direction: column
         justify-content: space-around
@@ -355,12 +376,10 @@
       margin-left: auto
     & .header__burger
       display: block
-      z-index: 1
     & .header__logo
       top: 50%
       left: 0
       transform: translate(0, -50%)
-      transition: .3s
       & img
         max-height: 80px
         margin-right: 10px
@@ -382,11 +401,8 @@
   .header
     &.small
       & .header__menu
-        background-position: calc(130%) 100%, calc(-200%) 100px
-    &__menu
-      background-position: calc(130%) 100%, calc(-200%) 100px
-    &__inner
-      margin-top: 170px
+        &.open
+          background-position: calc(100% + 100px) 100%, calc(100% + 100px) 100px
 @media screen and ( max-width: 768px )
   .header
     &.small
@@ -445,6 +461,14 @@
         height: 70px
         padding-left: 115px
         grid-column-gap: 10px
+      & .header__menu
+        & .menu__list
+          & li
+            padding-left: 0
+            &::before
+              content: none
+        &.open
+          background-image: none
     &__phone
       & img
         width: 22px
@@ -457,6 +481,12 @@
       height: 70px
       padding-left: 115px
       grid-column-gap: 10px
+    &__menu
+      & .menu__list
+        & li
+          padding-left: 0
+          &::before
+            content: none
     & .header__logo
       & img
         max-height: 50px
@@ -465,10 +495,8 @@
           font-size: 14px
         & span:last-child
           font-size: 20px
-    &__inner
-      margin-top: 50px
     &__title
-      font-size: 30px
+      font-size: 36px
     &__subtitle
       font-size: 16px
 @media screen and ( max-width: 480px )
@@ -477,6 +505,8 @@
       font-size: 16px
     &__button-wrapper
       column-gap: 15px
+    &__title
+      font-size: 30px
 @media screen and ( max-width: 400px )
   .header
     &__top
@@ -490,3 +520,13 @@
       & .header__logo
         & .logo__text
           display: none
+      & .header__menu
+        & .menu__list
+          & li
+            & a
+              font-size: 28px
+    &__menu
+      & .menu__list
+        & li
+          & a
+            font-size: 28px
