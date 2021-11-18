@@ -24,7 +24,7 @@
   &__subtitle
     margin-bottom: 86px
   &__slider
-    padding-top: 30px
+    padding: 30px
     padding-bottom: 150px
     position: relative
     &::after
@@ -153,6 +153,19 @@
     transform: translateX(-250px)
   100%
     transform: translateX(0)
+@media screen and ( min-width: 581px ) and (max-device-height: 800px)
+  .news
+    &__slider
+      padding-bottom: 80px
+    &__description
+      padding: 0 20px 20px
+    &__card-link
+      font-size: 20px
+    &__date,
+    &__card-title,
+    &__exerpt,
+    &__image
+      margin-bottom: 15px
 @media screen and ( max-width: 1000px )
   .news
     &__slider
@@ -193,8 +206,15 @@
         // padding-right: 35px
         &::before
           content: none
-
 @media screen and ( max-width: 480px )
   .news
     &__card
       max-width: 95%
+    &__slider
+      padding: 15px
+      padding-bottom: 60px
+@media screen and ( max-width: 400px )
+  .news
+    &__slider
+      padding: 10px
+      padding-bottom: 60px

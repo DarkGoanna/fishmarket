@@ -126,26 +126,45 @@ if (playerWrapper) {
 
 // activity
 const activityWrapper = document.querySelector('.activity__inner');
-const activities = document.querySelectorAll('.activity__card');
 
 if (activityWrapper) {
   activityWrapper.addEventListener('click', event => {
-    const target = event.target.closest('.activity__card');
+    const target = event.target.closest('.activity__head');
 
-    if (target && target.classList.contains('activity__card')) {
-      const content = target.querySelector('.activity__body');
+    if (target && target.classList.contains('activity__head')) {
+      const wrapper = event.target.closest('.activity__card');
+      const content = wrapper.querySelector('.activity__body');
+      const isOpen = wrapper.classList.contains('open');
 
-      activities.forEach(activity => {
-        const content = activity.querySelector('.activity__body');
-        activity.classList.remove('open');
-        content.style.height = '';
-      })
-
-      content.style.height = `${content.scrollHeight}px`;
-      target.classList.add('open')
+      if (isOpen) {
+        wrapper.classList.remove('open');
+        content.style.height = '0px';
+      } else {
+        wrapper.classList.add('open');
+        content.style.height = `${content.scrollHeight}px`;
+      }
     }
   })
+}
 
+function setHeightOnResize() {
+  const cards = document.querySelectorAll('.activity__card.open');
+  const isMobile = window.matchMedia('(max-width: 580px)').matches;
+
+  if (cards.length) {
+    cards.forEach(card => {
+      const content = card.querySelector('.activity__body');
+      const text = card.querySelector('.activity__text');
+      let imageHeight = 0;
+
+      if (isMobile) {
+        const image = card.querySelector('.activity__body img');
+        imageHeight = image.clientHeight;
+      }
+
+      content.style.height = `${text.clientHeight + imageHeight}px`;
+    });
+  }
 }
 
 // on load
@@ -155,13 +174,14 @@ window.addEventListener('load', () => {
 });
 
 // on scroll
-document.addEventListener('scroll', () => {
+window.addEventListener('scroll', () => {
   detectScrollDirection();
   resizeHeader();
   headerMinHeight = getHederMinHeght();
 });
 
 // on resize
-document.addEventListener('resize', () => {
+window.addEventListener('resize', () => {
   headerMinHeight = getHederMinHeght();
+  setHeightOnResize();
 });

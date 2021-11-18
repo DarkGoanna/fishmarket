@@ -66,7 +66,6 @@
     background: $white
     border: 1px solid $black
     border-radius: 50%
-    // overflow: hidden
     cursor: pointer
     &::before
       content: ''
@@ -94,6 +93,9 @@
       background: transparent
       border: 1px solid $black
       border-radius: 50%
+    &:hover
+      &::before
+        transform: translate(-50%, -50%) scale(1.2)
     &[data-action="play"]
       &::before
         background-image: url('../img/icons/play.svg')
@@ -118,6 +120,16 @@
   100%
     width: calc(100% + 10px)
     height: calc(100% + 10px)
+@media screen and ( min-width: 1001px ) and (max-device-height: 800px)
+  .video
+    &__player-wrapper
+      max-width: 900px
+      max-height: 500px
+      overflow: hidden
+      margin: auto
+    &__btn
+      width: 80px
+      height: 80px
 @media screen and ( max-width: 1000px )
   .video
     &__btn
@@ -126,7 +138,6 @@
     &__poster
       &::before
         max-width: 80%
-
 @media screen and ( max-width: 580px )
   .video
     &__btn

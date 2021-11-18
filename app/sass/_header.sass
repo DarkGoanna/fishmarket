@@ -141,18 +141,16 @@
       opacity: 1
       visibility: visible
   &__inner
-    margin-top: 275px
+    margin: 275px auto 0
     position: relative
     height: auto
     visibility: visible
     opacity: 1
-    transition: opacity .5s, height .5s, margin .75s
+    transition: opacity .2s, height .5s, margin .75s
     z-index: 3
     padding-top: 20px
     max-width: 783px
     text-align: center
-    margin-left: auto
-    margin-right: auto
   &__title
     font-size: 52px
     letter-spacing: -2px
@@ -274,11 +272,11 @@
           letter-spacing: 5px
           line-height: 1.1
     & .header__inner
-      margin: 0
+      margin: 0 auto
       height: 0
       visibility: hidden
       opacity: 0
-      transition: opacity .5s, height .5s, margin .75s
+      transition: opacity .2s, height .5s, margin .75s
 @media screen and ( min-width: 1400px )
   .header
     &__inner
@@ -455,8 +453,10 @@
 @media screen and ( max-width: 580px )
   .header
     --headerMinHeight: 70px
+    transition: .65s
     &.small
       height: var(--headerMinHeight)
+      transition: .65s
       & .header__logo
         & img
           max-height: 50px

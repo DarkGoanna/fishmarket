@@ -451,18 +451,16 @@ textarea {
 }
 
 .header__inner {
-  margin-top: 275px;
+  margin: 275px auto 0;
   position: relative;
   height: auto;
   visibility: visible;
   opacity: 1;
-  transition: opacity .5s, height .5s, margin .75s;
+  transition: opacity .2s, height .5s, margin .75s;
   z-index: 3;
   padding-top: 20px;
   max-width: 783px;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .header__title {
@@ -635,11 +633,11 @@ textarea {
 }
 
 .header.small .header__inner {
-  margin: 0;
+  margin: 0 auto;
   height: 0;
   visibility: hidden;
   opacity: 0;
-  transition: opacity .5s, height .5s, margin .75s;
+  transition: opacity .2s, height .5s, margin .75s;
 }
 
 .about {
@@ -1092,7 +1090,7 @@ textarea {
 }
 
 .news__slider {
-  padding-top: 30px;
+  padding: 30px;
   padding-bottom: 150px;
   position: relative;
 }
@@ -1401,6 +1399,10 @@ textarea {
   border-radius: 50%;
 }
 
+.video__btn:hover::before {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
 .video__btn[data-action="play"]::before {
   background-image: url("../img/icons/play.svg");
   background-position: right center;
@@ -1572,6 +1574,41 @@ textarea {
 
 .activity__card.open .activity__body {
   transition: .2s;
+}
+
+@media screen and (min-width: 581px) and (max-device-height: 800px) {
+  .news__slider {
+    padding-bottom: 80px;
+  }
+
+  .news__description {
+    padding: 0 20px 20px;
+  }
+
+  .news__card-link {
+    font-size: 20px;
+  }
+
+  .news__date,
+  .news__card-title,
+  .news__exerpt,
+  .news__image {
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (min-width: 1001px) and (max-device-height: 800px) {
+  .video__player-wrapper {
+    max-width: 900px;
+    max-height: 500px;
+    overflow: hidden;
+    margin: auto;
+  }
+
+  .video__btn {
+    width: 80px;
+    height: 80px;
+  }
 }
 
 @media screen and (min-width: 1200px) and (max-device-height: 800px) {
@@ -2116,6 +2153,7 @@ textarea {
 
   .activity__text {
     padding-left: 15px;
+    padding-bottom: 20px;
   }
 }
 
@@ -2152,10 +2190,12 @@ textarea {
 
   .header {
     --headerMinHeight: 70px;
+    transition: .65s;
   }
 
   .header.small {
     height: var(--headerMinHeight);
+    transition: .65s;
   }
 
   .header.small .header__logo img {
@@ -2414,6 +2454,19 @@ textarea {
     max-width: 100%;
   }
 
+  .activity__body picture {
+    float: none;
+    margin: 0;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .activity__body picture img {
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+
   .delivery__card--1 .t4 {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
@@ -2446,6 +2499,11 @@ textarea {
 
   .news__card {
     max-width: 95%;
+  }
+
+  .news__slider {
+    padding: 15px;
+    padding-bottom: 60px;
   }
 }
 
@@ -2494,5 +2552,10 @@ textarea {
 
   .header__menu .menu__list li a {
     font-size: 28px;
+  }
+
+  .news__slider {
+    padding: 10px;
+    padding-bottom: 60px;
   }
 }
