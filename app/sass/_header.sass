@@ -1,7 +1,6 @@
 .header
-  position: fixed
-  top: 0
-  left: 0
+  --headerMinHeight: 115px
+  position: relative
   width: 100%
   height: 100vh
   z-index: 100
@@ -168,8 +167,16 @@
     align-items: center
     justify-content: center
     column-gap: 36px
+  &.fixed
+    position: fixed
+    top: calc(var(--headerMinHeight) * -1)
+    left: 0
+    transition: .2s
+    &.show
+      top: 0
+      transition: .2s
   &.small
-    height: 115px
+    height: var(--headerMinHeight)
     background: $dark
     transition: .5s
     & .header__delivery
@@ -447,8 +454,9 @@
         left: 50px
 @media screen and ( max-width: 580px )
   .header
+    --headerMinHeight: 70px
     &.small
-      height: 70px
+      height: var(--headerMinHeight)
       & .header__logo
         & img
           max-height: 50px
@@ -458,7 +466,7 @@
           & span:last-child
             font-size: 20px
       & .header__top
-        height: 70px
+        height: var(--headerMinHeight)
         padding-left: 115px
         grid-column-gap: 10px
       & .header__menu
@@ -478,7 +486,7 @@
       width: 150px
       height: 40px
     &__top
-      height: 70px
+      height: var(--headerMinHeight)
       padding-left: 115px
       grid-column-gap: 10px
     &__menu

@@ -2,6 +2,8 @@ const html = document.querySelector('html');
 const header = document.querySelector('.header');
 const burger = document.querySelector('#burger');
 const menu = document.querySelector('.menu');
+let headerMinHeight = 0;
+let lastScrollPosition = 0;
 
 // is Apple
 function isApple() {
@@ -23,20 +25,36 @@ function resizeHeader() {
 
   if (window.scrollY > lengthY) {
     header.classList.add('small');
-    fixHeaderHeight();
   } else {
     header.classList.remove('small');
-    fixHeaderHeight();
   }
 }
 
-// фиксим проваливание блока идущего после fixed header
-function fixHeaderHeight() {
-  const maxHeight = '100vh';
-  const minHeight = '215px';
+function getHederMinHeght() {
+  headerMinHeight = getComputedStyle(header).getPropertyValue('--headerMinHeight');
+  return parseFloat(headerMinHeight);
+}
 
-  header.nextElementSibling.style.transition = '.5s';
-  header.nextElementSibling.style.paddingTop = header.classList.contains('small') ? minHeight : maxHeight;
+function detectScrollDirection() {
+  const positionFromTop = window.pageYOffset;
+  const nextElement = header.nextElementSibling;
+
+  if (window.scrollY > headerMinHeight) {
+    header.classList.add('fixed');
+    nextElement.style.paddingTop = `${headerMinHeight}px`;
+
+    if (positionFromTop > lastScrollPosition) {
+      header.classList.remove('show');
+    } else {
+      header.classList.add('show');
+    }
+  } else if (window.scrollY === 0) {
+    header.classList.remove('fixed');
+    header.classList.remove('show');
+    nextElement.style.paddingTop = '';
+  }
+
+  lastScrollPosition = positionFromTop <= 0 ? 0 : positionFromTop;
 }
 
 // menu
@@ -133,10 +151,17 @@ if (activityWrapper) {
 // on load
 window.addEventListener('load', () => {
   if (isApple()) document.html.classList.add('ios');
-  fixHeaderHeight();
+  headerMinHeight = getHederMinHeght();
 });
 
 // on scroll
 document.addEventListener('scroll', () => {
+  detectScrollDirection();
   resizeHeader();
+  headerMinHeight = getHederMinHeght();
+});
+
+// on resize
+document.addEventListener('resize', () => {
+  headerMinHeight = getHederMinHeght();
 });
