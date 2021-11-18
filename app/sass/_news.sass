@@ -25,10 +25,68 @@
     margin-bottom: 86px
   &__slider
     padding-top: 30px
+    padding-bottom: 150px
+    position: relative
+    &::after
+      content: ''
+      display: block
+      width: 80px
+      height: 50px
+      position: absolute
+      bottom: 0
+      left: 50%
+      transform: translateX(-50%)
+      background-image: url('../img/slider-decor.svg')
+      background-repeat: no-repeat
+      background-size: contain
+  &__nav
+    position: absolute
+    top: auto
+    bottom: 0
+    transform: none
+    width: auto
+    &--prev
+      padding-left: 35px
+      &::before
+        content: 'Предыдущие'
+        color: $dark
+        font-size: 20px
+      &::after
+        content: ''
+        display: block
+        width: 30px
+        height: 12px
+        background-image: url('../img/icons/arrow-right.svg')
+        background-repeat: no-repeat
+        background-size: contain
+        position: absolute
+        top: 50%
+        left: 0
+        transform: translateY(-50%) rotate(180deg)
+    &--next
+      padding-right: 35px
+      &::before
+        content: 'Следующие'
+        color: $dark
+        font-size: 20px
+      &::after
+        content: ''
+        display: block
+        width: 30px
+        height: 12px
+        background-image: url('../img/icons/arrow-right.svg')
+        background-repeat: no-repeat
+        background-size: contain
+        position: absolute
+        top: 50%
+        right: 0
+        transform: translateY(-50%)
   &__card
     width: 100%
     position: relative
     overflow: hidden
+    transition: .3s
+    background: $white
     box-shadow: 0px 24px 32px rgba(0, 0, 0, 0.1)
     & > a
       position: absolute
@@ -38,6 +96,10 @@
       height: 100%
       display: block
       z-index: 2
+    &:hover
+      transform: translateY(-30px)
+      box-shadow: 0px 24px 32px rgba(0, 0, 0, 0.2)
+      transition: .3s
   &__image
     margin-bottom: 24px
     display: block
@@ -45,7 +107,7 @@
       width: 100%
       object-fit: cover
   &__description
-    padding: 0 30px
+    padding: 0 30px 30px
   &__date
     margin-bottom: 24px
     display: flex
@@ -79,6 +141,7 @@
     display: flex
     align-items: center
     column-gap: 12px
+    font-size: 24px
     & svg
       fill: $dark
       stroke: $dark
@@ -90,3 +153,48 @@
     transform: translateX(-250px)
   100%
     transform: translateX(0)
+@media screen and ( max-width: 1000px )
+  .news
+    &__slider
+      padding-bottom: 100px
+@media screen and ( max-width: 768px )
+  .news
+    &__date
+      column-gap: 10px
+      & span:not(:last-child)::after
+        right: -5px
+    &__description
+      padding: 0 15px 15px
+    &__card-title
+      font-size: 20px
+      margin-bottom: 15px
+    &__card-link
+      font-size: 18px
+    &__slider
+      &::after
+        content: none
+@media screen and ( max-width: 580px )
+  .news
+    &__slider
+      padding-bottom: 60px
+    &__card
+      max-width: 90%
+      margin: auto
+      box-shadow: 0px 24px 32px rgba(0, 0, 0, 0.1)
+      &:hover
+        transform: none
+        box-shadow: 0px 24px 32px rgba(0, 0, 0, 0.1)
+    &__nav
+      &--prev
+        // padding-left: 35px
+        &::before
+          content: none
+      &--next
+        // padding-right: 35px
+        &::before
+          content: none
+
+@media screen and ( max-width: 480px )
+  .news
+    &__card
+      max-width: 95%

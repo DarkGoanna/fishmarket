@@ -23,7 +23,6 @@ function resizeHeader() {
 
   if (window.scrollY > lengthY) {
     header.classList.add('small');
-    // setTimeout(fixHeaderHeight, 300)
     fixHeaderHeight();
   } else {
     header.classList.remove('small');
@@ -56,22 +55,79 @@ if (newsSlider) {
     loop: true,
     spaceBetween: 36,
     slidesPerView: 3,
+    slidesPerGroup: 3,
     navigation: {
       nextEl: '.news__nav--next',
       prevEl: '.news__nav--prev',
     },
     breakpoints: {
-      321: {
+      1: {
         slidesPerView: 1,
+        slidesPerGroup: 1,
       },
       581: {
         slidesPerView: 2,
+        slidesPerGroup: 2,
       },
-      769: {
+      1001: {
         slidesPerView: 3,
+        slidesPerGroup: 3,
       },
     },
   });
+}
+
+// video
+const playerWrapper = document.querySelector('.video__player-wrapper');
+if (playerWrapper) {
+  const player = playerWrapper.querySelector('.video__player');
+  const btn = playerWrapper.querySelector('.video__btn');
+
+  btn.addEventListener('click', () => {
+    playerWrapper.classList.add('active');
+
+    btn.classList.add('toggleCircle')
+
+    const action = btn.getAttribute('data-action');
+    switch (action) {
+      case 'play':
+        btn.setAttribute('data-action', 'pause');
+        player.play();
+        break;
+      case 'pause':
+        btn.setAttribute('data-action', 'play');
+        player.pause();
+        break;
+    }
+
+    setTimeout(() => {
+      btn.classList.remove('toggleCircle')
+    }, 200)
+  })
+}
+
+// activity
+const activityWrapper = document.querySelector('.activity__inner');
+const activities = document.querySelectorAll('.activity__card');
+
+if (activityWrapper) {
+  activityWrapper.addEventListener('click', event => {
+    const target = event.target.closest('.activity__card');
+
+    if (target && target.classList.contains('activity__card')) {
+      const content = target.querySelector('.activity__body');
+
+      activities.forEach(activity => {
+        const content = activity.querySelector('.activity__body');
+        activity.classList.remove('open');
+        content.style.height = '';
+      })
+
+      content.style.height = `${content.scrollHeight}px`;
+      target.classList.add('open')
+    }
+  })
+
 }
 
 // on load

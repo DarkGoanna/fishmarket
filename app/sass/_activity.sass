@@ -1,0 +1,114 @@
+.activity
+  &__title,
+  &__subtitle
+    max-width: 700px
+    margin: auto
+  &__title
+    display: flex
+    justify-content: center
+    margin-bottom: 27px
+  &__inner
+    max-width: 850px
+    margin: 100px auto 0
+    display: flex
+    flex-direction: column
+  &__head
+    background: $white
+    border-radius: 0
+    border: none
+    width: calc(100% - 100px)
+    margin: 0 50px
+    text-align: left
+    cursor: pointer
+    & .t3
+      border-top: 1px solid $black
+      padding: 30px 80px 20px 15px
+      position: relative
+      transition: .2s
+      &::after
+        content: ''
+        display: block
+        width: 40px
+        height: 30px
+        background-image: url('../img/icons/arrow-right.svg')
+        background-repeat: no-repeat
+        background-position: center
+        background-size: contain
+        transform: rotate(90deg)
+        position: absolute
+        top: 35px
+        right: 50px
+        pointer-events: none
+    & p
+      font-size: 24px
+      color: #4D4D4D
+      letter-spacing: -0.408px
+      padding: 0 15px 15px
+
+  &__body
+    padding: 50px 0 80px
+    margin: auto
+    transition: .2s
+    height: 0
+    padding: 0
+    overflow: hidden
+    & picture img
+      filter: grayscale(1)
+      transition: .2s
+  &__text
+    font-size: 20px
+    line-height: 1.5
+    letter-spacing: -0.24px
+    color: #4D4D4D
+  &__card
+    &:first-child
+      &::after
+        content: ''
+        display: block
+        width: 350px
+        height: 350px
+        background-image: url('../img/activity-cat.svg')
+        background-repeat: no-repeat
+        background-position: center
+        background-size: contain
+        position: absolute
+        top: 320px
+        right: ((-350px / 2) - 30px)
+        pointer-events: none
+        z-index: -1
+        transform: translateY(-50%) translateX(-100%)
+        opacity: 0
+        transition: .2s
+    &.open
+      &:first-child
+        position: relative
+        &::after
+          transform: translateY(-50%) translateX(0)
+          transition: .2s
+          opacity: 1
+    &:hover
+      & .activity__body
+        & picture img
+          filter: grayscale(0)
+          transition: .2s
+    &.open
+      & .activity__body
+        transition: .2s
+@media screen and ( max-width: 1100px )
+  .activity
+    &__card
+      &:first-child
+        &::after
+          content: none
+@media screen and ( max-width: 768px )
+  .activity
+    &__head
+      width: 100%
+      margin: 0
+    &__body
+      & picture
+        margin-left: 10px
+        margin-bottom: 10px
+        max-width: 250px
+    &__text
+      padding-left: 15px
