@@ -1,0 +1,207 @@
+.contacts
+  padding-bottom: 100px
+  &__title,
+  &__subtitle
+    margin: auto
+  &__title
+    max-width: max-content
+    display: flex
+    justify-content: center
+    margin-bottom: 27px
+  &__subtitle
+    max-width: 700px
+  &__inner
+    margin-top: 100px
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-gap: 30px
+  &__info
+    grid-column: 1/-1
+    text-align: right
+    font-size: 24px
+  &__map
+    position: relative
+    padding-top: 100%
+    &::before
+      content: ''
+      display: block
+      width: 100%
+      height: 100%
+      z-index: 2
+      background-image: url("../img/map.jpg")
+      background-image: image-set(url("../img/map.webp") type("image/webp"), url("../img/map.jpg") type("image/jpeg"))
+      background-repeat: no-repeat
+      background-size: cover
+      background-position: center
+      opacity: 1
+      visibility: visible
+      transition: .2s
+      position: absolute
+      top: 0
+      left: 0
+      pointer-events: none
+    & iframe
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+    &:hover
+      &::before
+        opacity: 0
+        visibility: hidden
+        transition: .2s
+  &__list
+    margin-top: 80px
+    display: flex
+    flex-direction: column
+    row-gap: 30px
+    & li
+      padding-left: calc(40px + 25px)
+      position: relative
+      list-style: none
+      &::before
+        content: ''
+        display: block
+        width: 40px
+        height: 40px
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: center
+        position: absolute
+        top: 50%
+        left: 0
+        transform: translateY(-50%)
+      &:nth-child(1)
+        &::before
+          background-image: url("../img/icons/phone-2.svg")
+      &:nth-child(2)
+        &::before
+          background-image: url("../img/icons/time.svg")
+      &:nth-child(3)
+        &::before
+          background-image: url("../img/icons/mail-2.svg")
+      &:nth-child(4)
+        &::before
+          background-image: url("../img/icons/home.svg")
+      & a,
+      & p
+        font-size: 24px
+        letter-spacing: -0.408px
+        color: #4D4D4D
+        font-weight: 600
+      & a
+        position: relative
+        overflow: hidden
+        display: inline-block
+        &::before
+          content: ''
+          width: 100%
+          height: 1px
+          background: $main
+          display: block
+          position: absolute
+          bottom: 0px
+          left: 0
+          transform: translateX(-100%)
+          opacity: 0
+          transition: .2s
+        &:hover
+          &::before
+            transform: translateX(0)
+            opacity: 1
+            transition: .2s
+  &__description
+    & .t1
+      & p
+        position: relative
+        display: inline-block
+        line-height: .9
+        &::before
+          content: ''
+          width: 100%
+          height: 1px
+          background: $dark
+          display: block
+          position: absolute
+          bottom: 0
+          left: 0
+        &:last-child
+          &::after
+            content: ''
+            display: inline-block
+            vertical-align: middle
+            width: 100px
+            height: 100px
+            background-image: url('../img/cat-fish.svg')
+            background-repeat: no-repeat
+            background-position: center -10%
+@media screen and ( max-width: 768px )
+  .contacts
+    padding-bottom: 75px
+    &__inner
+      grid-template-columns: 100%
+      grid-row-gap: 40px
+      margin-top: 40px
+    &__map
+      padding-top: 60%
+    &__description
+      display: flex
+      flex-direction: column
+      & .t1
+        font-size: 70px
+        position: relative
+        width: max-content
+        margin: auto
+        padding-right: 15px
+        &::after
+          content: ''
+          width: 100%
+          height: 1px
+          background: $dark
+          display: block
+          position: absolute
+          bottom: 0
+          left: 0
+        & p
+          &::before
+            content: none
+          &::after
+            height: 100%
+    &__list
+      margin-top: 30px
+@media screen and ( max-width: 580px )
+  .contacts
+    padding-bottom: 50px
+    &__title
+      margin-bottom: 0
+    &__inner
+      // grid-row-gap: 40px
+      margin-top: 30px
+    &__description
+      & .t1
+        font-size: 48px
+    &__list
+      row-gap: 15px
+      & li
+        padding-left: calc(30px + 20px)
+        &::before
+          width: 30px
+          height: 30px
+        & a,
+        & p
+          font-size: 18px
+    &__info
+      font-size: 18px
+@media screen and ( max-width: 480px )
+  .contacts
+    &__description
+      & .t1
+        font-size: 36px
+    &__inner
+      margin-top: 20px
+@media screen and ( max-width: 400px )
+  .contacts
+    &__description
+      & .t1
+        font-size: 30px

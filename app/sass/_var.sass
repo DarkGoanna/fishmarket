@@ -82,7 +82,9 @@ h5, h6
     border: 1px solid $main
     &:hover,
     &:active
-      // background: 
+      background: $second
+      border-color: $second
+      color: $main
       transition: .2s
   &--v2
     color: $white
@@ -90,7 +92,9 @@ h5, h6
     border: 1px solid $white
     &:hover,
     &:active
-      // background: 
+      background: rgba($white, .5)
+      border-color: $white
+      color: $white
       transition: .2s
   &--v3
     color: $white
@@ -98,7 +102,9 @@ h5, h6
     border: 1px solid $second
     &:hover,
     &:active
-      // background: 
+      background: rgba($white, .5)
+      border-color: $white
+      color: $white
       transition: .2s
 .container
   max-width: 1240px + (2 * 15px)
@@ -130,7 +136,13 @@ h5, h6
   border-bottom: 1px solid $black
   padding: 8px 0
   text-transform: uppercase
-
+.parallax
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: center
+  background-attachment: fixed
+.ios .parallax
+  background-attachment: scroll
 @media screen and ( max-width: 768px )
   .t1, h1
   // font-size: 96px

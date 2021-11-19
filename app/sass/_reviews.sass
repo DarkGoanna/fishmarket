@@ -1,0 +1,27 @@
+.reviews
+  background: $white
+  color: $black
+  margin-top: 0
+  padding: 100px 0
+  &__title
+    max-width: 700px
+    width: 100%
+    margin: auto
+    margin-bottom: 60px
+    font-size: 24px
+    display: block
+    text-align: center
+  &__link-wrapper
+    display: flex
+    align-items: center
+    justify-content: center
+    column-gap: 23px
+@media screen and ( max-width: 480px )
+  .reviews
+    padding: 75px 0
+    &__link-wrapper
+      flex-direction: row
+@media screen and ( max-width: 400px )
+  .reviews
+    &__link-wrapper
+      flex-direction: column

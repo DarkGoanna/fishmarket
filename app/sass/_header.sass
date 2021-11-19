@@ -262,7 +262,7 @@
         flex-direction: column
         justify-content: center
         align-items: center
-        padding: 8px 0 0
+        padding: 7px 0 2px
         & span:first-child
           font-size: 20px
           letter-spacing: 1.5px
@@ -393,7 +393,7 @@
         flex-direction: column
         justify-content: center
         align-items: center
-        padding: 8px 0 0
+        padding: 7px 0 2px
         & span:first-child
           font-size: 20px
           letter-spacing: 1.5px
@@ -477,14 +477,38 @@
               content: none
         &.open
           background-image: none
+      & .header__delivery
+        &::before
+          opacity: 1
+          visibility: visible
     &__phone
       & img
         width: 22px
       & span
         display: none
     &__delivery
-      width: 150px
-      height: 40px
+      width: 45px
+      height: 45px
+      font-size: 0
+      color: transparent
+      border: none
+      position: relative
+      &::before
+        content: ''
+        display: block
+        width: 100%
+        height: 100%
+        pointer-events: none
+        background-image: url('../img/icons/delivery.svg')
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: center
+        position: absolute
+        top: 0
+        left: 0
+        transform: translate(0)
+        opacity: 1
+        visibility: visible
     &__top
       height: var(--headerMinHeight)
       padding-left: 115px
@@ -509,8 +533,6 @@
       font-size: 16px
 @media screen and ( max-width: 480px )
   .header
-    &__delivery
-      font-size: 16px
     &__button-wrapper
       column-gap: 15px
     &__title
@@ -518,16 +540,14 @@
 @media screen and ( max-width: 400px )
   .header
     &__top
-      padding-left: 50px
     & .header__logo
       & .logo__text
-        display: none
+        // display: none
     &.small
       & .header__top
-        padding-left: 50px
       & .header__logo
         & .logo__text
-          display: none
+          // display: none
       & .header__menu
         & .menu__list
           & li

@@ -1,0 +1,24 @@
+#socials
+  position: fixed
+  bottom: 50px
+  right: 50px
+  width: 80px
+  height: 80px
+  border-radius: 50%
+  border: 1px solid $white
+  background: rgba($main, .5)
+  display: flex
+  align-items: center
+  justify-content: center
+  cursor: pointer
+  transition: .2s
+  z-index: 100
+  & svg
+    transform: scale(1)
+    transition: .2s
+  &:hover
+    background: rgba($main, .3)
+    transition: .2s
+    & svg
+      transform: scale(1.1)
+      transition: .2s
