@@ -6,6 +6,7 @@ const convert = require('gulp-sass');
 const uglify = require('gulp-uglify-es').default;
 const autoprefixer = require('autoprefixer');
 const postcss = require('gulp-postcss');
+const minifyCSS = require('gulp-minify-css');
 const imagemin = require('gulp-imagemin');
 const webp = require('imagemin-webp');
 const del = require('del');
@@ -23,6 +24,9 @@ function styles() {
     return src('app/sass/style.sass')
         .pipe(convert({ outputStyle: 'compressed' }))
         .pipe(concat('style.min.css'))
+        .pipe(minifyCSS({
+            keepBreaks: true
+        }))
         .pipe(gcmq())
         .pipe(postcss([autoprefixer({
             grid: true,
