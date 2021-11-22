@@ -143,6 +143,9 @@
     align-items: center
     column-gap: 12px
     font-size: 24px
+    background: transparent
+    border: none
+    cursor: pointer
     & svg
       fill: $dark
       stroke: $dark
@@ -156,6 +159,8 @@
     transform: translateX(0)
 @media screen and ( min-width: 581px ) and (max-device-height: 800px)
   .news
+    &__subtitle
+      margin-bottom: 40px
     &__slider
       padding-bottom: 80px
     &__description
@@ -173,6 +178,8 @@
       padding-bottom: 100px
 @media screen and ( max-width: 768px )
   .news
+    &__subtitle
+      margin-bottom: 40px
     &__date
       column-gap: 10px
       & span:not(:last-child)::after
@@ -189,6 +196,8 @@
         content: none
 @media screen and ( max-width: 580px )
   .news
+    &__subtitle
+      margin-bottom: 30px
     &__slider
       padding-bottom: 60px
     &__card

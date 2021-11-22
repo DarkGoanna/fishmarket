@@ -16,6 +16,11 @@
     align-items: center
     justify-content: center
     column-gap: 23px
+@media screen and ( max-width: 768px )
+  .reviews
+    &__link
+      & img
+        max-height: 100px
 @media screen and ( max-width: 480px )
   .reviews
     padding: 75px 0
@@ -23,5 +28,6 @@
       flex-direction: row
 @media screen and ( max-width: 400px )
   .reviews
-    &__link-wrapper
-      flex-direction: column
+    &__link
+      & img
+        max-width: 80px

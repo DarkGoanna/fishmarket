@@ -47,7 +47,8 @@
                         <li><a href="#contacts">Контакты</a></li>
                     </ul>
                 </nav>
-                <button class="header__delivery btn btn--small btn--v2">Доставка блюд</button>
+                <button class="header__delivery btn btn--small btn--v2 poup-caller" data-content="contact-form">Доставка
+                    блюд</button>
             </div>
 
             <div class="header__inner">
@@ -57,8 +58,9 @@
                     голубоглазку домой или мы ее зажарим сами.
                 </p>
                 <div class="header__button-wrapper">
-                    <button class="btn btn--v1 btn--small">Меню</button>
-                    <button class="btn btn--v2 btn--small">Доставка блюд</button>
+                    <a href="img/2gis-reviews.png" download class="btn btn--v1 btn--small">Меню</a>
+                    <button class="btn btn--v2 btn--small poup-caller" data-content="contact-form">Доставка
+                        блюд</button>
                 </div>
             </div>
 
@@ -146,7 +148,8 @@
                                 Главный гость на всех вечеринках - рыбка мечтающая попасть на ваши столы в срочном
                                 порядке. Настолько свежая, что 5 минут назад гуляла по морю.
                             </p>
-                            <button class="btn btn--big btn--v1" type="button">Заказ блюд</button>
+                            <button class="btn btn--big btn--v1 poup-caller" data-content="contact-form"
+                                type="button">Заказ блюд</button>
                         </div>
                     </div>
 
@@ -170,7 +173,7 @@
                                 <!-- <source srcset="img/menu-1.webp" type="image/webp"> -->
                                 <img src="img/menu-1.jpg" alt="">
                             </picture>
-                            <button class="menu-section__btn" type="button">
+                            <button class="menu-section__btn poup-caller" data-content="contact-form" type="button">
                                 <span>Зарезервировать стол</span>
                                 <svg class="menu-section__arrow" width="49" height="25" viewBox="0 0 49 25" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -193,7 +196,7 @@
                                 <!-- <source srcset="img/menu-2.webp" type="image/webp"> -->
                                 <img src="img/menu-2.jpg" alt="">
                             </picture>
-                            <a href="#" class="menu-section__btn">
+                            <a href="img/2gis-reviews.png" download class="menu-section__btn">
                                 <span>Смотреть меню</span>
                                 <svg class="menu-section__arrow" width="49" height="25" viewBox="0 0 49 25" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -215,7 +218,7 @@
                                 <!-- <source srcset="img/menu-3.webp" type="image/webp"> -->
                                 <img src="img/menu-3.jpg" alt="">
                             </picture>
-                            <button class="menu-section__btn" type="button">
+                            <button class="menu-section__btn poup-caller" data-content="contact-form" type="button">
                                 <span>Оформить заказ</span>
                                 <svg class="menu-section__arrow" width="49" height="25" viewBox="0 0 49 25" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -238,7 +241,7 @@
                                 <!-- <source srcset="img/menu-4.webp" type="image/webp"> -->
                                 <img src="img/menu-4.jpg" alt="">
                             </picture>
-                            <button class="menu-section__btn" type="button">
+                            <button class="menu-section__btn poup-caller" data-content="contact-form" type="button">
                                 <span>Доставка</span>
                                 <svg class="menu-section__arrow" width="49" height="25" viewBox="0 0 49 25" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -275,7 +278,8 @@
                             <img src="img/app-android.svg" alt="android">
                         </a>
                     </div>
-                    <button class="app__btn btn btn--big btn--v2" type="button">Заказать</button>
+                    <button class="app__btn btn btn--big btn--v2 poup-caller" data-content="contact-form"
+                        type="button">Заказать</button>
                 </div>
             </div>
         </section>
@@ -290,7 +294,6 @@
                     <div class='swiper-wrapper'>
                         <div class='swiper-slide'>
                             <div class="news__card">
-                                <a href="#" class="news__link"></a>
                                 <picture class="news__image">
                                     <!-- <source srcset="img/menu-2.webp" type="image/webp"> -->
                                     <img src="img/menu-2.jpg" alt="">
@@ -304,8 +307,8 @@
                                     </div>
                                     <div class="news__exerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                     </div>
-                                    <a href="#" class="news__card-link">
-                                        <span>Подробнее</span>
+                                    <button type="button" class="news__card-link poup-caller" data-content="menu-1">
+                                        <span>Подробнее 1</span>
                                         <svg class="menu-section__arrow" width="49" height="25" viewBox="0 0 49 25"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M30.7126 2.82409L47.6667 11.7581L31.1338 21.4494L30.7126 2.82409Z"
@@ -313,7 +316,7 @@
                                             <path d="M34.3274 11.7373L0.980469 11.7373" stroke="black"
                                                 stroke-width="5" />
                                         </svg>
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -321,6 +324,54 @@
                     <div class='swiper-button-prev news__nav news__nav--prev'></div>
                     <div class='swiper-button-next news__nav news__nav--next'></div>
                 </div>
+                <!-- description in popup -->
+                <div class="popup" id="menu-1">
+                    <div class="popup__inner menu-description clearfix">
+                        <button class="popup__close" type="button"></button>
+                        <picture class="popup__menu-image alignright">
+                            <!-- <source srcset="img/menu-2.webp" type="image/webp"> -->
+                            <img src="img/menu-2.jpg" alt="">
+                        </picture>
+                        <div class="popup__menu-description">
+                            <h5>
+                                Не берите манеру заказывать только по одной порции.
+                            </h5>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae perspiciatis
+                                numquam architecto quaerat explicabo eaque voluptate est aliquid nemo sequi
+                                ea, enim expedita fugiat facilis adipisci inventore impedit quos in odio
+                                mollitia omnis voluptas! Ipsum voluptate nulla soluta asperiores dolorum.
+                                Perferendis natus neque explicabo illum, doloribus accusantium consectetur
+                                mollitia fuga!
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae perspiciatis
+                                numquam architecto quaerat explicabo eaque voluptate est aliquid nemo sequi
+                                ea, enim expedita fugiat facilis adipisci inventore impedit quos in odio
+                                mollitia omnis voluptas! Ipsum voluptate nulla soluta asperiores dolorum.
+                                Perferendis natus neque explicabo illum, doloribus accusantium consectetur
+                                mollitia fuga!
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae perspiciatis
+                                numquam architecto quaerat explicabo eaque voluptate est aliquid nemo sequi
+                                ea, enim expedita fugiat facilis adipisci inventore impedit quos in odio
+                                mollitia omnis voluptas! Ipsum voluptate nulla soluta asperiores dolorum.
+                                Perferendis natus neque explicabo illum, doloribus accusantium consectetur
+                                mollitia fuga!
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae perspiciatis
+                                numquam architecto quaerat explicabo eaque voluptate est aliquid nemo sequi
+                                ea, enim expedita fugiat facilis adipisci inventore impedit quos in odio
+                                mollitia omnis voluptas! Ipsum voluptate nulla soluta asperiores dolorum.
+                                Perferendis natus neque explicabo illum, doloribus accusantium consectetur
+                                mollitia fuga!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- description in popup -->
             </div>
         </section>
 
@@ -562,7 +613,8 @@
                     <div class="footer__title">Подпишись на нашу рассылку</div>
                     <div class="mailing">
                         <input type="email" placeholder="E-mail">
-                        <button type="submit" class="footer__btn btn btn--v1 btn--middle">Доставка блюд</button>
+                        <button type="submit" class="footer__btn btn btn--v1 btn--middle poup-caller"
+                            data-content="contact-form">Доставка блюд</button>
                     </div>
                     <p>Подпишись на нашу рассылку и узнавай о новинках и событиях первым.</p>
                 </div>
@@ -657,7 +709,7 @@
     </footer>
 
     <!-- socials -->
-    <button id="socials" data-fancybox data-src="#socials-content">
+    <button id="socials" class="poup-caller" data-content="socials-content">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
                 d="M8.03906 4.6045C8.03906 2.14349 10.0382 0.148438 12.5042 0.148438H27.3879C29.8539 0.148438 31.853 2.14349 31.853 4.6045V12.0313C31.853 14.4923 29.8539 16.4873 27.3879 16.4873H26.6437C26.2327 16.4873 25.8995 16.1548 25.8995 15.7447V9.80324C25.8995 7.75239 24.2336 6.08985 22.1786 6.08985H9.52743C8.70543 6.08985 8.03906 5.42484 8.03906 4.6045Z"
@@ -668,93 +720,115 @@
         </svg>
     </button>
 
-    <div id="socials-content" style="display:none;">
-        <h5>Остались вопросы?</h5>
-        <p>Свяжитесь с нами удобным для вас способом</p>
-        <div class="socials-inner">
-            <a href="telegram" target="_blank">
-                <svg width="50" height="43" viewBox="0 0 50 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M18.848 26.6795C18.8756 26.2916 19.0528 25.9296 19.3421 25.6698L29.1816 16.835L15.5387 25.3714C15.1681 25.6033 14.7149 25.662 14.2975 25.5321L4.48642 22.4806L18.848 26.6795ZM18.848 26.6795L18.1323 36.7459C18.1028 37.1612 18.2472 37.57 18.5309 37.8747C18.8147 38.1793 19.2123 38.3523 19.6286 38.3523C20.3791 38.3523 21.0085 38.1849 21.5618 37.8659C22.0403 37.5901 22.4061 37.226 22.6486 36.9846C22.6575 36.9758 22.6662 36.9671 22.6748 36.9586M18.848 26.6795L22.6748 36.9586M22.6748 36.9586L26.5564 33.2491L35.4901 39.7913C35.54 39.8279 35.5921 39.8613 35.6462 39.8914C36.7339 40.4976 38.0511 40.8633 39.2958 40.2995C40.5349 39.7382 41.1519 38.5038 41.4408 37.2361L41.4453 37.2159L47.9619 6.68104C47.9672 6.66077 47.972 6.64036 47.9764 6.61983C48.3211 5.01319 48.1224 3.44512 47.057 2.41992C45.9737 1.37746 44.4708 1.34902 43.2337 1.80947L43.2337 1.80941L43.2206 1.81441L4.8395 16.5084L4.83949 16.5084L4.83303 16.5109C4.07883 16.8037 3.4187 17.1639 2.91259 17.6073C2.4149 18.0432 1.94771 18.6696 1.87624 19.4799C1.80042 20.3395 2.19899 21.0422 2.70689 21.517C3.19254 21.971 3.82605 22.2757 4.48502 22.4801L22.6748 36.9586Z"
-                        stroke="#ffffff" stroke-width="3" stroke-linejoin="round" />
-                </svg>
-            </a>
-            <a href="viber" target="_blank">
-                <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_32_2656)">
+    <div class="popup" id="socials-content">
+        <div class="popup__inner">
+            <button class="popup__close" type="button"></button>
+            <h5>Остались вопросы?</h5>
+            <p>Свяжитесь с нами удобным для вас способом</p>
+            <div class="popup__socials">
+                <a href="telegram" target="_blank">
+                    <svg width="50" height="43" viewBox="0 0 50 43" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
-                            d="M50.1698 30.1018C51.7212 17.0433 49.4245 8.79913 45.2818 5.0703L45.284 5.06813C38.5977 -1.2997 16.0167 -2.2422 8.01733 5.35413C4.42499 9.06996 3.15966 14.5235 3.02099 21.2748C2.88233 28.0283 2.71766 40.6795 14.5065 44.1115H14.5173L14.5065 49.3526C14.5065 49.3526 14.4263 51.476 15.7827 51.9028C17.334 52.4055 18.036 51.4196 22.8612 45.6563C30.9298 46.3561 37.1265 44.7528 37.8307 44.5188C39.46 43.9728 48.6792 42.753 50.1698 30.1018ZM23.6563 41.9686C23.6563 41.9686 18.5495 48.3365 16.9613 49.9896C16.4413 50.527 15.8715 50.4771 15.8802 49.4111C15.8802 48.7113 15.9192 40.7098 15.9192 40.7098C5.92433 37.8455 6.51366 27.0728 6.62199 21.4373C6.73033 15.7996 7.76166 11.1825 10.8037 8.0733C17.8215 1.49313 37.6183 2.9643 42.6623 7.70496C48.8287 13.1715 46.6338 28.6155 46.6468 29.142C45.3793 39.7023 37.9087 40.3718 36.535 40.829C35.9478 41.024 30.4987 42.4258 23.6563 41.9686Z"
-                            fill="#ffffff" />
-                        <path
-                            d="M26.4811 9.31055C25.6469 9.31055 25.6469 10.6105 26.4811 10.6214C32.9529 10.6712 38.2829 15.1822 38.3414 23.4567C38.3414 24.3299 39.6198 24.319 39.6089 23.4459H39.6068C39.5374 14.53 33.7178 9.36038 26.4811 9.31055Z"
-                            fill="#ffffff" />
-                        <path
-                            d="M34.9934 22.0849C34.9739 22.9472 36.2501 22.9884 36.2609 22.1152C36.3671 17.1991 33.3359 13.1496 27.6397 12.7227C26.8055 12.6621 26.7189 13.9729 27.5509 14.0336C32.4909 14.4084 35.093 17.7797 34.9934 22.0849Z"
-                            fill="#ffffff" />
-                        <path
-                            d="M33.6282 27.6766C32.5578 27.0569 31.468 27.4426 31.0173 28.0514L30.0748 29.2712C29.596 29.8909 28.7012 29.8086 28.7012 29.8086C22.1708 28.0817 20.4245 21.2481 20.4245 21.2481C20.4245 21.2481 20.3443 20.3229 20.9423 19.8267L22.121 18.8517C22.7103 18.3837 23.083 17.2571 22.4828 16.1499C20.8795 13.2531 19.8027 12.2542 19.2545 11.4872C18.6782 10.7657 17.8115 10.6032 16.9102 11.0907H16.8907C15.0165 12.1871 12.9647 14.2389 13.6212 16.3514C14.7413 18.5787 16.7997 25.6789 23.3603 31.0436C26.4435 33.5807 31.3228 36.1807 33.3942 36.7809L33.4137 36.8112C35.4547 37.4916 37.4393 35.3596 38.4988 33.4291V33.4139C38.969 32.4801 38.813 31.5961 38.1262 31.0176C36.9085 29.8302 35.0712 28.5194 33.6282 27.6766Z"
-                            fill="#ffffff" />
-                        <path
-                            d="M28.5329 17.5593C30.6151 17.6806 31.6247 18.7683 31.7331 21.0021C31.7721 21.8753 33.0396 21.8146 33.0006 20.9415C32.8619 18.0251 31.3409 16.4001 28.6023 16.2485C27.7681 16.1986 27.6901 17.5095 28.5329 17.5593Z"
-                            fill="#ffffff" />
-                    </g>
-                    <defs>
-                        <clipPath id="clip0_32_2656">
-                            <rect width="52" height="52" fill="white" />
-                        </clipPath>
-                    </defs>
-                </svg>
+                            d="M18.848 26.6795C18.8756 26.2916 19.0528 25.9296 19.3421 25.6698L29.1816 16.835L15.5387 25.3714C15.1681 25.6033 14.7149 25.662 14.2975 25.5321L4.48642 22.4806L18.848 26.6795ZM18.848 26.6795L18.1323 36.7459C18.1028 37.1612 18.2472 37.57 18.5309 37.8747C18.8147 38.1793 19.2123 38.3523 19.6286 38.3523C20.3791 38.3523 21.0085 38.1849 21.5618 37.8659C22.0403 37.5901 22.4061 37.226 22.6486 36.9846C22.6575 36.9758 22.6662 36.9671 22.6748 36.9586M18.848 26.6795L22.6748 36.9586M22.6748 36.9586L26.5564 33.2491L35.4901 39.7913C35.54 39.8279 35.5921 39.8613 35.6462 39.8914C36.7339 40.4976 38.0511 40.8633 39.2958 40.2995C40.5349 39.7382 41.1519 38.5038 41.4408 37.2361L41.4453 37.2159L47.9619 6.68104C47.9672 6.66077 47.972 6.64036 47.9764 6.61983C48.3211 5.01319 48.1224 3.44512 47.057 2.41992C45.9737 1.37746 44.4708 1.34902 43.2337 1.80947L43.2337 1.80941L43.2206 1.81441L4.8395 16.5084L4.83949 16.5084L4.83303 16.5109C4.07883 16.8037 3.4187 17.1639 2.91259 17.6073C2.4149 18.0432 1.94771 18.6696 1.87624 19.4799C1.80042 20.3395 2.19899 21.0422 2.70689 21.517C3.19254 21.971 3.82605 22.2757 4.48502 22.4801L22.6748 36.9586Z"
+                            stroke="#116B6A" stroke-width="3" stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <a href="viber" target="_blank">
+                    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_32_2656)">
+                            <path
+                                d="M50.1698 30.1018C51.7212 17.0433 49.4245 8.79913 45.2818 5.0703L45.284 5.06813C38.5977 -1.2997 16.0167 -2.2422 8.01733 5.35413C4.42499 9.06996 3.15966 14.5235 3.02099 21.2748C2.88233 28.0283 2.71766 40.6795 14.5065 44.1115H14.5173L14.5065 49.3526C14.5065 49.3526 14.4263 51.476 15.7827 51.9028C17.334 52.4055 18.036 51.4196 22.8612 45.6563C30.9298 46.3561 37.1265 44.7528 37.8307 44.5188C39.46 43.9728 48.6792 42.753 50.1698 30.1018ZM23.6563 41.9686C23.6563 41.9686 18.5495 48.3365 16.9613 49.9896C16.4413 50.527 15.8715 50.4771 15.8802 49.4111C15.8802 48.7113 15.9192 40.7098 15.9192 40.7098C5.92433 37.8455 6.51366 27.0728 6.62199 21.4373C6.73033 15.7996 7.76166 11.1825 10.8037 8.0733C17.8215 1.49313 37.6183 2.9643 42.6623 7.70496C48.8287 13.1715 46.6338 28.6155 46.6468 29.142C45.3793 39.7023 37.9087 40.3718 36.535 40.829C35.9478 41.024 30.4987 42.4258 23.6563 41.9686Z"
+                                fill="#116B6A" />
+                            <path
+                                d="M26.4811 9.31055C25.6469 9.31055 25.6469 10.6105 26.4811 10.6214C32.9529 10.6712 38.2829 15.1822 38.3414 23.4567C38.3414 24.3299 39.6198 24.319 39.6089 23.4459H39.6068C39.5374 14.53 33.7178 9.36038 26.4811 9.31055Z"
+                                fill="#116B6A" />
+                            <path
+                                d="M34.9934 22.0849C34.9739 22.9472 36.2501 22.9884 36.2609 22.1152C36.3671 17.1991 33.3359 13.1496 27.6397 12.7227C26.8055 12.6621 26.7189 13.9729 27.5509 14.0336C32.4909 14.4084 35.093 17.7797 34.9934 22.0849Z"
+                                fill="#116B6A" />
+                            <path
+                                d="M33.6282 27.6766C32.5578 27.0569 31.468 27.4426 31.0173 28.0514L30.0748 29.2712C29.596 29.8909 28.7012 29.8086 28.7012 29.8086C22.1708 28.0817 20.4245 21.2481 20.4245 21.2481C20.4245 21.2481 20.3443 20.3229 20.9423 19.8267L22.121 18.8517C22.7103 18.3837 23.083 17.2571 22.4828 16.1499C20.8795 13.2531 19.8027 12.2542 19.2545 11.4872C18.6782 10.7657 17.8115 10.6032 16.9102 11.0907H16.8907C15.0165 12.1871 12.9647 14.2389 13.6212 16.3514C14.7413 18.5787 16.7997 25.6789 23.3603 31.0436C26.4435 33.5807 31.3228 36.1807 33.3942 36.7809L33.4137 36.8112C35.4547 37.4916 37.4393 35.3596 38.4988 33.4291V33.4139C38.969 32.4801 38.813 31.5961 38.1262 31.0176C36.9085 29.8302 35.0712 28.5194 33.6282 27.6766Z"
+                                fill="#116B6A" />
+                            <path
+                                d="M28.5329 17.5593C30.6151 17.6806 31.6247 18.7683 31.7331 21.0021C31.7721 21.8753 33.0396 21.8146 33.0006 20.9415C32.8619 18.0251 31.3409 16.4001 28.6023 16.2485C27.7681 16.1986 27.6901 17.5095 28.5329 17.5593Z"
+                                fill="#116B6A" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_32_2656">
+                                <rect width="52" height="52" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
 
-            </a>
-            <a href="mail" target="_blank">
-                <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M7.8 6.60156H44.2C46.7025 6.60156 48.75 8.65249 48.75 11.1592V38.5049C48.75 41.0116 46.7025 43.0625 44.2 43.0625H7.8C5.2975 43.0625 3.25 41.0116 3.25 38.5049V11.1592C3.25 8.65249 5.2975 6.60156 7.8 6.60156Z"
-                        stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M48.75 11.1719L26 27.1172L3.25 11.1719" stroke="#ffffff" stroke-width="3"
-                        stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
+                </a>
+                <a href="mail" target="_blank">
+                    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M7.8 6.60156H44.2C46.7025 6.60156 48.75 8.65249 48.75 11.1592V38.5049C48.75 41.0116 46.7025 43.0625 44.2 43.0625H7.8C5.2975 43.0625 3.25 41.0116 3.25 38.5049V11.1592C3.25 8.65249 5.2975 6.60156 7.8 6.60156Z"
+                            stroke="#116B6A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M48.75 11.1719L26 27.1172L3.25 11.1719" stroke="#116B6A" stroke-width="3"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
 
-            </a>
-            <a href="instagram" target="_blank">
-                <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_32_2655)">
+                </a>
+                <a href="instagram" target="_blank">
+                    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_32_2655)">
+                            <path
+                                d="M26.0083 12.6494C18.6352 12.6494 12.666 18.6251 12.666 25.9918C12.666 33.3649 18.6417 39.3341 26.0083 39.3341C33.3815 39.3341 39.3507 33.3584 39.3507 25.9918C39.3507 18.6186 33.375 12.6494 26.0083 12.6494ZM26.0083 34.6519C21.2222 34.6519 17.3482 30.7758 17.3482 25.9918C17.3482 21.2078 21.2243 17.3316 26.0083 17.3316C30.7924 17.3316 34.6685 21.2078 34.6685 25.9918C34.6707 30.7758 30.7945 34.6519 26.0083 34.6519Z"
+                                fill="#116B6A" />
+                            <path
+                                d="M36.7212 0.165291C31.9372 -0.0578758 20.0877 -0.0470425 15.2993 0.165291C11.0917 0.362458 7.38016 1.37862 4.38799 4.37079C-0.612674 9.37146 0.0264924 16.1098 0.0264924 25.992C0.0264924 36.106 -0.536841 42.6883 4.38799 47.6131C9.40816 52.6311 16.244 51.9746 26.0092 51.9746C36.0278 51.9746 39.4858 51.9811 43.0283 50.6096C47.8448 48.7398 51.4805 44.4346 51.8358 36.7018C52.0612 31.9156 52.0482 20.0683 51.8358 15.28C51.4068 6.15179 46.508 0.615958 36.7212 0.165291ZM44.2937 44.3046C41.0155 47.5828 36.4677 47.2903 25.9463 47.2903C15.113 47.2903 10.7688 47.4506 7.59899 44.2721C3.94816 40.6386 4.60899 34.8038 4.60899 25.9573C4.60899 13.9865 3.38049 5.36529 15.3947 4.74996C18.155 4.65246 18.9675 4.61996 25.916 4.61996L26.0135 4.68496C37.5597 4.68496 46.6185 3.47596 47.1623 15.488C47.2858 18.2288 47.314 19.0521 47.314 25.9898C47.3118 36.6975 47.5155 41.0676 44.2937 44.3046Z"
+                                fill="#116B6A" />
+                            <path
+                                d="M39.8796 15.2405C41.6015 15.2405 42.9974 13.8446 42.9974 12.1227C42.9974 10.4008 41.6015 9.00488 39.8796 9.00488C38.1576 9.00488 36.7617 10.4008 36.7617 12.1227C36.7617 13.8446 38.1576 15.2405 39.8796 15.2405Z"
+                                fill="#116B6A" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_32_2655">
+                                <rect width="52" height="52" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </a>
+                <a href="facebook" target="_blank">
+                    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
-                            d="M26.0083 12.6494C18.6352 12.6494 12.666 18.6251 12.666 25.9918C12.666 33.3649 18.6417 39.3341 26.0083 39.3341C33.3815 39.3341 39.3507 33.3584 39.3507 25.9918C39.3507 18.6186 33.375 12.6494 26.0083 12.6494ZM26.0083 34.6519C21.2222 34.6519 17.3482 30.7758 17.3482 25.9918C17.3482 21.2078 21.2243 17.3316 26.0083 17.3316C30.7924 17.3316 34.6685 21.2078 34.6685 25.9918C34.6707 30.7758 30.7945 34.6519 26.0083 34.6519Z"
-                            fill="#ffffff" />
+                            d="M43.875 24.5H37.25V19.5C37.25 19.4708 37.2507 19.445 37.2518 19.4224C37.3629 19.4017 37.5309 19.3838 37.7823 19.3759C38.0167 19.3685 38.2495 19.3704 38.5226 19.3726C38.6682 19.3737 38.8252 19.375 39 19.375H42.25C43.0784 19.375 43.75 18.7034 43.75 17.875V9.75C43.75 8.92157 43.0784 8.25 42.25 8.25H35.75C29.5352 8.25 24.5 13.2852 24.5 19.5V24.5H19.5C18.6716 24.5 18 25.1716 18 26V34.125C18 34.9534 18.6716 35.625 19.5 35.625H24.5V50.5H6.5C3.74292 50.5 1.5 48.2556 1.5 45.5V6.5C1.5 3.74259 3.74259 1.5 6.5 1.5H45.5C48.2556 1.5 50.5 3.74292 50.5 6.5V45.5C50.5 48.2552 48.2552 50.5 45.5 50.5H37.25V35.625H40.625C41.2384 35.625 41.7899 35.2516 42.0177 34.6821L45.2677 26.5571C45.4526 26.0949 45.3961 25.5712 45.1171 25.1591C44.8381 24.7469 44.3727 24.5 43.875 24.5ZM37.2699 19.2856C37.2699 19.2857 37.2696 19.2867 37.2689 19.2887C37.2695 19.2865 37.2699 19.2855 37.2699 19.2856Z"
+                            stroke="#116B6A" stroke-width="3" stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <a href="vatcup" target="_blank">
+                    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
-                            d="M36.7212 0.165291C31.9372 -0.0578758 20.0877 -0.0470425 15.2993 0.165291C11.0917 0.362458 7.38016 1.37862 4.38799 4.37079C-0.612674 9.37146 0.0264924 16.1098 0.0264924 25.992C0.0264924 36.106 -0.536841 42.6883 4.38799 47.6131C9.40816 52.6311 16.244 51.9746 26.0092 51.9746C36.0278 51.9746 39.4858 51.9811 43.0283 50.6096C47.8448 48.7398 51.4805 44.4346 51.8358 36.7018C52.0612 31.9156 52.0482 20.0683 51.8358 15.28C51.4068 6.15179 46.508 0.615958 36.7212 0.165291ZM44.2937 44.3046C41.0155 47.5828 36.4677 47.2903 25.9463 47.2903C15.113 47.2903 10.7688 47.4506 7.59899 44.2721C3.94816 40.6386 4.60899 34.8038 4.60899 25.9573C4.60899 13.9865 3.38049 5.36529 15.3947 4.74996C18.155 4.65246 18.9675 4.61996 25.916 4.61996L26.0135 4.68496C37.5597 4.68496 46.6185 3.47596 47.1623 15.488C47.2858 18.2288 47.314 19.0521 47.314 25.9898C47.3118 36.6975 47.5155 41.0676 44.2937 44.3046Z"
-                            fill="#ffffff" />
-                        <path
-                            d="M39.8796 15.2405C41.6015 15.2405 42.9974 13.8446 42.9974 12.1227C42.9974 10.4008 41.6015 9.00488 39.8796 9.00488C38.1576 9.00488 36.7617 10.4008 36.7617 12.1227C36.7617 13.8446 38.1576 15.2405 39.8796 15.2405Z"
-                            fill="#ffffff" />
-                    </g>
-                    <defs>
-                        <clipPath id="clip0_32_2655">
-                            <rect width="52" height="52" fill="white" />
-                        </clipPath>
-                    </defs>
-                </svg>
-            </a>
-            <a href="facebook" target="_blank">
-                <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M43.875 24.5H37.25V19.5C37.25 19.4708 37.2507 19.445 37.2518 19.4224C37.3629 19.4017 37.5309 19.3838 37.7823 19.3759C38.0167 19.3685 38.2495 19.3704 38.5226 19.3726C38.6682 19.3737 38.8252 19.375 39 19.375H42.25C43.0784 19.375 43.75 18.7034 43.75 17.875V9.75C43.75 8.92157 43.0784 8.25 42.25 8.25H35.75C29.5352 8.25 24.5 13.2852 24.5 19.5V24.5H19.5C18.6716 24.5 18 25.1716 18 26V34.125C18 34.9534 18.6716 35.625 19.5 35.625H24.5V50.5H6.5C3.74292 50.5 1.5 48.2556 1.5 45.5V6.5C1.5 3.74259 3.74259 1.5 6.5 1.5H45.5C48.2556 1.5 50.5 3.74292 50.5 6.5V45.5C50.5 48.2552 48.2552 50.5 45.5 50.5H37.25V35.625H40.625C41.2384 35.625 41.7899 35.2516 42.0177 34.6821L45.2677 26.5571C45.4526 26.0949 45.3961 25.5712 45.1171 25.1591C44.8381 24.7469 44.3727 24.5 43.875 24.5ZM37.2699 19.2856C37.2699 19.2857 37.2696 19.2867 37.2689 19.2887C37.2695 19.2865 37.2699 19.2855 37.2699 19.2856Z"
-                        stroke="#ffffff" stroke-width="3" stroke-linejoin="round" />
-                </svg>
-            </a>
-            <a href="vatcup" target="_blank">
-                <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M43.875 24.5H37.25V19.5C37.25 19.4708 37.2507 19.445 37.2518 19.4224C37.3629 19.4017 37.5309 19.3838 37.7823 19.3759C38.0167 19.3685 38.2495 19.3704 38.5226 19.3726C38.6682 19.3737 38.8252 19.375 39 19.375H42.25C43.0784 19.375 43.75 18.7034 43.75 17.875V9.75C43.75 8.92157 43.0784 8.25 42.25 8.25H35.75C29.5352 8.25 24.5 13.2852 24.5 19.5V24.5H19.5C18.6716 24.5 18 25.1716 18 26V34.125C18 34.9534 18.6716 35.625 19.5 35.625H24.5V50.5H6.5C3.74292 50.5 1.5 48.2556 1.5 45.5V6.5C1.5 3.74259 3.74259 1.5 6.5 1.5H45.5C48.2556 1.5 50.5 3.74292 50.5 6.5V45.5C50.5 48.2552 48.2552 50.5 45.5 50.5H37.25V35.625H40.625C41.2384 35.625 41.7899 35.2516 42.0177 34.6821L45.2677 26.5571C45.4526 26.0949 45.3961 25.5712 45.1171 25.1591C44.8381 24.7469 44.3727 24.5 43.875 24.5ZM37.2699 19.2856C37.2699 19.2857 37.2696 19.2867 37.2689 19.2887C37.2695 19.2865 37.2699 19.2855 37.2699 19.2856Z"
-                        stroke="#ffffff" stroke-width="3" stroke-linejoin="round" />
-                </svg>
-            </a>
+                            d="M43.875 24.5H37.25V19.5C37.25 19.4708 37.2507 19.445 37.2518 19.4224C37.3629 19.4017 37.5309 19.3838 37.7823 19.3759C38.0167 19.3685 38.2495 19.3704 38.5226 19.3726C38.6682 19.3737 38.8252 19.375 39 19.375H42.25C43.0784 19.375 43.75 18.7034 43.75 17.875V9.75C43.75 8.92157 43.0784 8.25 42.25 8.25H35.75C29.5352 8.25 24.5 13.2852 24.5 19.5V24.5H19.5C18.6716 24.5 18 25.1716 18 26V34.125C18 34.9534 18.6716 35.625 19.5 35.625H24.5V50.5H6.5C3.74292 50.5 1.5 48.2556 1.5 45.5V6.5C1.5 3.74259 3.74259 1.5 6.5 1.5H45.5C48.2556 1.5 50.5 3.74292 50.5 6.5V45.5C50.5 48.2552 48.2552 50.5 45.5 50.5H37.25V35.625H40.625C41.2384 35.625 41.7899 35.2516 42.0177 34.6821L45.2677 26.5571C45.4526 26.0949 45.3961 25.5712 45.1171 25.1591C44.8381 24.7469 44.3727 24.5 43.875 24.5ZM37.2699 19.2856C37.2699 19.2857 37.2696 19.2867 37.2689 19.2887C37.2695 19.2865 37.2699 19.2855 37.2699 19.2856Z"
+                            stroke="#116B6A" stroke-width="3" stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </div>
         </div>
     </div>
     <!-- socials -->
 
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <!-- contact form -->
+    <div class="popup" id="contact-form">
+        <div class="popup__inner">
+            <button class="popup__close" type="button"></button>
+            <h5>
+                Не берите манеру заказывать только по одной порции.
+            </h5>
+            <p>
+                Оставьте заявку и наш менеджер свяжеться с вами в ближайшее время
+            </p>
+            <div class="popup__form">
+                <input type="text" placeholder="Имя">
+                <input type="text" placeholder="Телефон">
+                <input type="text" placeholder="E-mail">
+                <button class="popup__btn btn btn--middle btn--v1">Отправить</button>
+            </div>
+        </div>
+    </div>
+    <!-- contact form -->
+
     <script src='https://unpkg.com/swiper/swiper-bundle.min.js'></script>
     <script src="js/main.js"></script>
 </body>

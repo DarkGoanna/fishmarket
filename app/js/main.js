@@ -167,6 +167,39 @@ function setHeightOnResize() {
   }
 }
 
+// popup
+function initPopup(popupID) {
+  const popup = document.querySelector(`#${popupID}`);
+  const popupInner = popup.querySelector('.popup__inner');
+
+  html.classList.add('scrollOff');
+  popup.classList.add('open');
+  setTimeout(() => { popupInner.classList.add('show') }, 400);
+
+  popup.onclick = event => {
+    const target = event.target;
+
+    if (target.classList.contains('popup') || target.classList.contains('popup__close')) {
+      popupInner.classList.remove('show');
+      setTimeout(() => {
+        popup.classList.remove('open');
+        html.classList.remove('scrollOff');
+      }, 400)
+    }
+  }
+}
+
+// socials popup
+const socialsButtons = document.querySelectorAll('.poup-caller');
+if (socialsButtons.length) {
+  socialsButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const popupID = btn.getAttribute('data-content');
+      initPopup(popupID);
+    })
+  })
+}
+
 // on load
 window.addEventListener('load', () => {
   if (isApple()) document.html.classList.add('ios');
